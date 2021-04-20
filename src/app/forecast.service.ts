@@ -14,7 +14,7 @@ export class ForecastService {
 
   getWeatherforecast(){
    
-    return new Observable((observer)=>(
+   /* return new Observable((observer)=>(
         navigator.geolocation.getCurrentPosition(
           (position)=>(
             observer.next(position)
@@ -32,10 +32,12 @@ export class ForecastService {
         .set('units', 'imperial')
         .set('appid', 'dcc620ed4238b7da06b58c97ba4cb9de')
     })
-    switchMap((values)=>{
-      return this.http.post('https://openweathermap.org/forecast5', {postParam : values})
+    */
+   // switchMap((values)=>{
+      return this.http.get('http://localhost:61532/assets/apiresponse.json');
       //return this.http.post('https://openweathermap.org/forecast5', {"postParam : values"}).map(res=>res.json()).subscribe(data=>{console.log(data);});
      
-    })
-  }
+   // })
+ // }
+}
 }

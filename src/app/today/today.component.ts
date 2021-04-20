@@ -9,7 +9,7 @@ import { ForecastService } from '../forecast.service';
   styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
-  timeline:any;
+  timeline:any = {};
   weatherNow:any;
   location:any;
   
@@ -19,6 +19,7 @@ export class TodayComponent implements OnInit {
 
   ngOnInit(): void {
     this.forecastService.getWeatherforecast().subscribe(data=>{
+      console.log('Json',data)
       this.getTodayForecast(data)
     })
   }
@@ -34,11 +35,13 @@ export class TodayComponent implements OnInit {
     this.location = today.city;
      console.log(today);
      
-     for(const forecast of today.array(0, 5)) {
-      this.timeline.push({
-        time: forecast.dt_txt,
-         temp: forecast.main.temp
-      }); 
+    
+    
+  // for(const forecast of today.array(0, 5)) {
+     // this.timeline.push({
+      //  time: forecast.dt_txt,
+        // temp: forecast.main.temp
+     // }); 
       
 
       const apiDate = new Date(today.dt_txt).getTime();
@@ -49,4 +52,3 @@ export class TodayComponent implements OnInit {
       }
     }
   } 
-}

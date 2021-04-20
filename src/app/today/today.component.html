@@ -15,7 +15,7 @@
         </div>
         <div class="timeline">
             <h1>3-hour Forecast</h1>
-         <div *ngIf="let item of timeline">
+         <div *ngFor="let item of timeline">
             <div class="timeline">{{ item.time | date:"HH:MM"}}</div>  
             <div class="timeline">{{ item.temp | number:'1.0-0'}} oF</div> 
         </div>
